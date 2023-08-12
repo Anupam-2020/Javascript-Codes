@@ -1,0 +1,27 @@
+*{
+    box-sizing: border-box;
+}
+
+.parent{
+    display: grid;
+    border: 2px solid black;
+    grid-template-columns: repeat(auto-fill, 120px);
+
+    /* display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 60vh;
+    /* max-width: 800px; */
+    border: 2px solid black; */
+}
+
+.child{
+    /* height: 40vh; */
+    /* width: 200px; */
+    border: 2px solid red;
+    background-color: aqua;
+    padding: 1rem;
+    margin: 5px;
+    font-weight: bold;
+    text-align: center;
+}
