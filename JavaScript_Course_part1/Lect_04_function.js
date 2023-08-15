@@ -9,3 +9,11 @@ const singHappyBirthday1 = function() {
 }
 
 singHappyBirthday1();
+
+
+// Immediately invoked function.
+const square = (function square(num) {
+    return num*num
+})(5)
+
+console.log(square)
