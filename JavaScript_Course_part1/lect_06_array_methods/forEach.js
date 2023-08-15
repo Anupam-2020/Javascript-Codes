@@ -26,3 +26,17 @@ users.forEach((user) => {
     console.log(user.firstName);
 });
 
+
+// polyfill for forEach
+Array.prototype.myForEach = function(cb) {
+    for(let i = 0; i < this.length; i++) {
+        cb(this[i], i, this)
+    }
+}
+
+
+numbers.myForEach((value, i) => {
+    numbers[i] = value + 3
+})
+
+console.log(numbers)

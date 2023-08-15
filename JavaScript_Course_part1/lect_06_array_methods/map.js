@@ -25,3 +25,20 @@ const userNames = users.map(user => {
     return user.firstName;
 });
 console.log(userNames);
+
+
+
+// Polyfill for map.
+Array.prototype.myMaps = function(cb) {
+    let temp = []
+    for(let i = 0; i < this.length; i++) {
+        temp.push(cb(this[i], i, this));
+    }
+    return temp;
+}
+
+const multiplyByThree = numbers.myMaps((num, i , arr) => {
+    return num * 3;
+})
+
+console.log(multiplyByThree);
