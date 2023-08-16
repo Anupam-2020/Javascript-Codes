@@ -24,3 +24,40 @@ for(var i = 0; i < 5; i++) { // here for-loop will create saperate block-scope f
         console.log(i);
     }, i*1000)
 }
+
+// spread vs rest operators
+function multiply(...nums) {
+    return nums[0]*nums[1];
+}
+
+var arr = [1,2];
+multiply(...arr)
+
+
+// arrow vs normal function.
+
+// diff 1 -> 
+function printName() {
+    console.log(arguments)
+}
+
+// const printNameArr = () => { // arrow fn. don't have arguments function
+//     console.log(arguments)
+// }
+
+printName('Anupam')
+// printNameArr('Anand')
+
+// diff 2 ->
+const user = {
+    username: 'Anupam',
+    rc1: () => {
+        console.log(this.username)
+    },
+    rc2: function() {
+        console.log(this.username)
+    }
+}
+
+user.rc1() // returns undefined.
+user.rc2() // returns value

@@ -20,7 +20,16 @@ value();
 value();
 
 
-// Ques 2 ----------------------------
+// Ques 2 to check time taken by normal function and when used closures.----------------------------
+
+const find1 = (index) => {
+  const arr = [];
+  for(let i = 0; i < 100000; i++) {
+    arr.push(i*i);
+  } 
+  return arr[index];
+}
+
 const find = () => {
   const arr = [];
   for(let i = 0; i < 100000; i++) {
@@ -34,6 +43,11 @@ const find = () => {
 
 console.time("6");
 console.log(find()(6));
+console.timeEnd("6");
+
+console.time("4")
+console.log(find1(6));
+console.timeEnd("4");
 
 // Ques 3 ---------------------------------
 for(var i = 0; i < 4; i++) {

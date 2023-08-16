@@ -1,4 +1,5 @@
-"use strict" // if we use "use strict"then this keyword in line no. 4 will give undefined else will give window object.
+"use strict" 
+// if we use "use strict"then this keyword in line no. 4 will give undefined else will give window object.
 
 // function myfunc() {
 //     console.log(this);
