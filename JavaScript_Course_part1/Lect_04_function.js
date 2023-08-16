@@ -59,5 +59,5 @@ const user = {
     }
 }
 
-user.rc1() // returns undefined.
+user.rc1() // returns window object.
 user.rc2() // returns value

@@ -93,3 +93,56 @@ localStorage.setItem('test',person.name)
 const value = localStorage.getItem('test');
 console.log(value)
 localStorage.removeItem('test')
+
+// guess the output.....
+const settings = {
+    username: 'Piyush',
+    level: 19,
+    health: 90
+}
+
+const data = JSON.stringify(settings, ['level', 'health']); // here whole object will not stringify but only the keys present in the array...
+console.log(data);
+
+// guess output......
+
+const shape = {
+    raduis: 10,
+    diameter: function() {
+        return 2 * this.raduis
+    },
+    perimeter: () => {
+        return 2 * Math.PI*this.radius
+    }
+}
+
+console.log(shape.diameter()) // this will return value
+console.log(shape.perimeter()) // this will retrun NaN as thsi.radius will return a window object....
+
+// shallow copy vs deep copy....
+// Shallow copying ->  creates a new object with references to the same memory locations as the original object, 
+// deep copying -> creates a new object with new memory locations for all of its properties and nested objects or arrays.
+
+const device = {
+    item1: 'laptop',
+    item2: {
+        item3: 'mobile'
+    }
+}
+
+// shallow copy.
+const device2 = device
+// device2.item1 = 'apple'; // this will change the copied object as well as the main object.
+// device2.item2.item3 = 'samsung' // this will change the copied as well main object.
+// console.log(device2)
+console.log(device)
+
+
+// deep copy.
+const device3 = {...device}
+// const device3 = Object.assign({},device);
+// const device3 = JSON.parse(JSON.stringify(device))
+device3.item1 = 'apple'; // this will change the copied object but not the main object.
+device3.item2.item3 = 'samsung' // this will change the copied object as well as the main object
+// console.log(device2)
+console.log(device)
