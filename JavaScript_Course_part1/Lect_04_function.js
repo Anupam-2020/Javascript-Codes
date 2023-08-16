@@ -17,3 +17,10 @@ const square = (function square(num) {
 })(5)
 
 console.log(square)
+
+// function scoping....
+for(var i = 0; i < 5; i++) { // here for-loop will create saperate block-scope for setTimeout on every iteration.... 
+    setTimeout(function() {
+        console.log(i);
+    }, i*1000)
+}
