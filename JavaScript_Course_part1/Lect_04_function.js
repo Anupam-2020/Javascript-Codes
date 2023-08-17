@@ -34,7 +34,7 @@ var arr = [1,2];
 multiply(...arr)
 
 
-// arrow vs normal function.
+// arrow vs normal function....................
 
 // diff 1 -> 
 function printName() {
