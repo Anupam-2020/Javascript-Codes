@@ -20,5 +20,5 @@ about.call(user2, 'Books','Basket ball');
 about.apply(user1, ['Coding', 'Ludo']);
 
 // bind
-const func = about.bind(user2, 'Coding', 'Basket Ball');
-func();
+const func = about.bind(user2);
+func('Coding', 'Basket Ball');
