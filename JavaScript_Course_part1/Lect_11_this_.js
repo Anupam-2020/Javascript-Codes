@@ -115,7 +115,7 @@ const user4 = {
 
 user4.getDetails();
 
-// `this` in class also in class chapter.......
+// `this` in class also in class chapter 16.......
 class Users {
     constructor(n) {
         this.name = n
