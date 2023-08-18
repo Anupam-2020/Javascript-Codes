@@ -12,6 +12,9 @@ function fibonacci(nth_value) {
     console.log(secondValue)
 }
 
+
+
+// another sol.-------------------------------------------------------------
 function fibRecursion(nth_value) {
     if(nth_value <= 1) {
         return nth_value

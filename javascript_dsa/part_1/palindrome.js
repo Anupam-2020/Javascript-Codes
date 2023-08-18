@@ -16,6 +16,8 @@ function palindromeCheck() {
     }
   }
   
+  
+  // another sol.-------------------------------------------------------------
   function palindrome(x) {
       x.toString() === x.toString().split("").reverse().join("") ? console.log('palindrome') : console.log('not a palindrome');
   }
