@@ -19,7 +19,7 @@
 
 const userMethods = { // M-3 for creating function as value of object.
     about: function() {
-        return `${this.firstName} is ${this.age} old`
+        return `${this.firstName} is ${this.age} years old`
     },
     is18: function() {
         return this.age > 18
@@ -31,7 +31,7 @@ const userMethods = { // M-3 for creating function as value of object.
 
 function createUser(firstname, lastName, email, age, address) {
     // const user = {};
-    const user = Object.create(userMethods);
+    const user = Object.create(userMethods); // by creating object using Object.create() user can access all the values of `userMethods` using `__proto__ object`...
     user.firstName = firstname;
     user.lastName = lastName;
     user.email = email;
@@ -47,11 +47,16 @@ function createUser(firstname, lastName, email, age, address) {
         // user.about = about; // with respect to M-2
         // user.is18 = is18;
 
-        user.about = userMethods.about; // wrt M-3
-        user.is18 = userMethods.is18;
+        // user.about = userMethods.about; // wrt M-3
+        // user.is18 = userMethods.is18;
+        // user.sing = userMethods.sing;
         return user;
 }
 
-const user1 = createUser("Anupam","Anand", "anupam@gmail.com",25, "Patna");
+const user1 = createUser("Anupam", "Anand", "anupam@gmail.com", 25, "Patna");
+console.log(user1);
 console.log(user1.sing());
-console.log(user1.__proto__);
+console.log(user1.is18());
+console.log(user1.about());
+console.log(user1.__proto__.about()); // we can access objects and functions using __proto__ but can't access this keyword...
+// __proto__ is explained in Lect_13__proto__.js file...

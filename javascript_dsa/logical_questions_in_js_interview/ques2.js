@@ -1,8 +1,16 @@
+function toString1() {
+  return this.flag.toUpperCase();
+}
+
+function toString2() {
+  return this.flag2++;
+}
+
 const x = {
-  flag: 1,
-  toString: function() {
-    return this.flag++;
-  }
+  flag: 'a',
+  flag2: 1,
+  toString: toString1,
+  toString: toString2
 }
 
 console.log(x == 1)

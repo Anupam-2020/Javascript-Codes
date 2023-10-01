@@ -64,7 +64,7 @@ const users = [
 ]
 
 // delete users[0].userId
-console.log(users);
+// console.log(users);
 
 
 // Another example of object......
@@ -75,7 +75,7 @@ const c = { key: 'c'}
 a[b] = 123;
 a[c] = 456;
 
-console.log(a); // here a will have key as '[object object]' and not b and c.
+// console.log(a); // here a will have key as '[object object]' and not b and c.
 
 
 // strinify vs parse............
@@ -85,14 +85,14 @@ console.log(a); // here a will have key as '[object object]' and not b and c.
 // }
 
 const strObj = JSON.stringify(person) // all keys gets converted to string
-console.log(strObj)
+// console.log(strObj)
 
-console.log(JSON.parse(strObj)) // keys get converted to original format from string.
+// console.log(JSON.parse(strObj)) // keys get converted to original format from string.
 
-localStorage.setItem('test',person.name)
-const value = localStorage.getItem('test');
-console.log(value)
-localStorage.removeItem('test')
+// localStorage.setItem('test',person.name)
+// const value = localStorage.getItem('test');
+// console.log(value)
+// localStorage.removeItem('test')
 
 // guess the output.....
 const settings = {
@@ -102,7 +102,7 @@ const settings = {
 }
 
 const data = JSON.stringify(settings, ['level', 'health']); // here whole object will not stringify but only the keys present in the array...
-console.log(data);
+// console.log(data);
 
 // guess output......
 
@@ -116,8 +116,8 @@ const shape = {
     }
 }
 
-console.log(shape.diameter()) // this will return value
-console.log(shape.perimeter()) // this will retrun NaN as thsi.radius will return a window object....
+// console.log(shape.diameter()) // this will return value
+// console.log(shape.perimeter()) // this will retrun NaN as thsi.radius will return a window object...
 
 // shallow copy vs deep copy....
 // Shallow copying ->  creates a new object with references to the same memory locations as the original object, 
@@ -131,7 +131,7 @@ const device = {
 }
 
 // shallow copy.
-const device2 = device
+// const device2 = device // (device2 creates a different reference but points to same object).
 // device2.item1 = 'apple'; // this will change the copied object as well as the main object.
 // device2.item2.item3 = 'samsung' // this will change the copied as well main object.
 // console.log(device2)
@@ -139,10 +139,10 @@ console.log(device)
 
 
 // deep copy.
-const device3 = {...device}
-// const device3 = Object.assign({},device);
+const device3 = {...device} // (device3 creates a different object which is also called object cloning)
+// const device3 = Object.assign({},device); // 2nd and older method of object cloning...
 // const device3 = JSON.parse(JSON.stringify(device))
 device3.item1 = 'apple'; // this will change the copied object but not the main object.
 device3.item2.item3 = 'samsung' // this will change the copied object as well as the main object
-// console.log(device2)
+console.log(device3)
 console.log(device)

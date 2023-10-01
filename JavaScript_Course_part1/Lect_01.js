@@ -4,13 +4,22 @@
 // 3. toLowerCase()
 // 4. slice()
 
-// types of data types
+// primitive data types -> 
 // 1. string
 // 2. number 
 // 3. boolean
 // 4. undefined
 // 5. null
 // 6. BigInt
+// 7. Symbol
+
+// non-premitive or reference data-types -> 
+// Arrays
+// Objects
+// Functions
+
+
+
 
 let a = 4.5;
 console.log(typeof a);
