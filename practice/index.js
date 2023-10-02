@@ -16,16 +16,6 @@
 
 // ele.addEventListener('keyup',hotDebounce());
 
-// obj1 = {
-//   name: 'Anupam',
-//   qualification: 'btech'
-// }
+var value = 'Anupam';
 
-// obj2 = {
-//   name1: 'Anrag',
-//   qualification1: 'btech'
-// }
-
-// obj3 = {...obj1, ...obj2}
-// const {name1, name} = obj3;
-// console.log(name1, name)
+console.log(window.value);

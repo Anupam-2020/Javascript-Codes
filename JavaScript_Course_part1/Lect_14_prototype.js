@@ -37,7 +37,7 @@ createUser.prototype.is18 = function() {
 
 createUser.prototype.write = 'Hello World';
 
-const user1 = createUser("Anupam","Anand","anupam@gmail.com",23, "Patna");
+const user1 = new createUser("Anupam","Anand","anupam@gmail.com",23, "Patna");
 console.log(user1.about());
 console.log(user1.__proto__); // since user1 is an object pointing to createUser, we get __proto__ as object..
 console.log(createUser.prototype);
