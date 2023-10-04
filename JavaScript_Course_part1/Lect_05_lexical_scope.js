@@ -63,8 +63,43 @@ function fun1() {
 }
 
 // console.log(fun1()());
+
+// Currying example...
+const ADDITION = '+';
+const SUBTRACTION = '-';
+const MULTIPLICATION = '*';
+const DIVISION = '/';
+
+function performOperation(operation) {
+    return function(a) {
+        return function(b) {
+            switch(operation) {
+                case ADDITION: return a + b;
+                case SUBTRACTION: return Math.abs(a - b);
+                case MULTIPLICATION: return Math.abs(a * b);
+                case DIVISION: return Math.round(a/ b);
+                default: return 'Invalid Operation';
+            }
+        }
+    }
+}
+
+console.log(performOperation('/')(2)(3));
+
+
+
+
 let ans = fun1();
 console.log(ans());
+
+function performOperation(a) {
+    return function(b) {
+        if(b) return performOperation(a+b); 
+        return a;
+    }
+}
+
+console.log(performOperation(2)(4)(6)());
 
 
 // Concept of shadowing.....................

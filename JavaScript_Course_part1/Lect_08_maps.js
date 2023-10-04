@@ -47,3 +47,14 @@ extraInfo.set(person2, {gender: 'Male', age: 6});
 console.log(extraInfo);
 console.log(extraInfo.get(person2).gender);
 // console.log(extraInfo.get(person2).age);
+
+
+const mp = new Map();
+
+for(let i = 97 ; i < 123; i++) {
+    mp.set(String.fromCharCode(i), i);
+}
+
+for(let i of mp) {
+    console.log(mp.get(i[0]));
+}

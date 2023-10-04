@@ -17,3 +17,20 @@ const emp = employee.find((user) => {
 });
 
 console.log(emp);
+
+// polyfill for find method...
+Array.prototype.myFind = function(cb) {
+    for(let i = 0; i < this.length; i++) {
+        if(cb(this[i], i, arr)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+const arr = [1,2,3,8];
+const res = arr.myFind((data, i, arr) => {
+    return data === 8;
+});
+
+console.log(res);

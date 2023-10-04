@@ -19,6 +19,9 @@ identity.prototype.data = function(name, years) {
     return `${name} has ${years} years of expericence`; 
 }
 
+// Object.prototype.name1 = 'Anupam'; // This prototype property will be accessed to all data-types, because object is parent of all other objects...
+// console.log(Array.name1);
+
 const user = new identity('Anupam', 25); // Here since we have used `prototype object` to add method(data). 
 // So this function now will behave as class or constructor function...
 // `user` has a reference of `class(identity) or constructor fn.(identity)` which can be accessed by `user` using `new` keyword...
