@@ -88,19 +88,36 @@ console.log(performOperation('/')(2)(3));
 
 
 
-
 let ans = fun1();
 console.log(ans());
 
-function performOperation(a) {
+function add(a) {
     return function(b) {
-        if(b) return performOperation(a+b); 
+        if(b) return add(a+b); 
         return a;
     }
 }
 
-console.log(performOperation(2)(4)(6)());
+console.log(add(2)(4)(6)());
 
+// currying implementation using normal function...
+function curry(func) {
+    return function curriedFunc(...args) {
+        if(args.length >= func.length) {
+            return func(...args);
+        } else {
+            return function (...next) {
+                return curriedFunc(...args, ...next);
+            }
+        }
+    }
+}
+
+const sum = (a,b,c,d) => a+b+c+d;
+
+const totalSum = curry(sum);
+
+console.log(totalSum(1)(3)(4)(2));
 
 // Concept of shadowing.....................
 // function func() {

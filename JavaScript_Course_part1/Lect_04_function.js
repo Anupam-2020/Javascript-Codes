@@ -19,10 +19,11 @@ const square = (function square(num) {
 console.log(square)
 
 // function scoping....
-for(var i = 0; i < 5; i++) { // here for-loop will create saperate block-scope for setTimeout on every iteration.... 
-    setTimeout(function() {
+for(let i = 0; i < 5; i++) { // here for-loop will create saperate block-scope for setTimeout on every iteration.... 
+    setTimeout(() => {
         console.log(i);
     }, i*1000)
+    // console.log(i)
 }
 
 // spread vs rest operators
@@ -37,11 +38,11 @@ multiply(...arr)
 // arrow vs normal function....................
 
 // diff 1 -> 
-function printName() {
-    console.log(arguments)
+function printName() { 
+    console.log(arguments) // arguments give an object of all the arguments passed to this function...
 }
 
-// const printNameArr = () => { // arrow fn. don't have arguments function
+// const printNameArr = () => { // in arrow fn. arguments don't work the same way as normal function...
 //     console.log(arguments)
 // }
 
