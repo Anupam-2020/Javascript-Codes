@@ -53,12 +53,14 @@ const find = () => {
   }
 }
 
+const findValue = find();
+
 console.time("6");
-console.log(find()(6));
+console.log(findValue(6));
 console.timeEnd("6");
 
 console.time("4")
-console.log(find1(6));
+console.log(findValue(6));
 console.timeEnd("4");
 
 // Ques 3 -------------------------------------
@@ -106,5 +108,3 @@ console.log(count.retrieve())
 
 
 // Ques 5 and 6 in part-3 file...
-
-// Ques 6-------------------------------------
