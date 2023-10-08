@@ -25,17 +25,5 @@
 // arr.splice(0,arr.length);
 // console.log(arr); 
 
-// const handler = {
-//     set:() => {
-//         console.log("Added a new property");
-//     },
-//     get: function() {
-//         console.log("Accessed a new property");
-//     }
-// }
-
-// const person = new Proxy({}, handler);
-
-// person.name1 = 'Added';
-// person.name1
+// polyfill for setTimeout...
 

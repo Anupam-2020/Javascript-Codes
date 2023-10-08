@@ -146,3 +146,19 @@ device3.item1 = 'apple'; // this will change the copied object but not the main 
 device3.item2.item3 = 'samsung' // this will change the copied object as well as the main object
 console.log(device3)
 console.log(device)
+
+
+// Proxy in objects......................................................................
+const handler = {
+    set:() => {
+        console.log("Added a new property");
+    },
+    get: function() {
+        console.log("Accessed a new property");
+    }
+}
+
+const person1 = new Proxy({}, handler)
+
+person1.name1 = 'Added';
+person1.name1
