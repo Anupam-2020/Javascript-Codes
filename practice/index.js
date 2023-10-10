@@ -23,7 +23,4 @@
 
 // let arr = [1,2,4];
 // arr.splice(0,arr.length);
-// console.log(arr); 
-
-// polyfill for setTimeout...
-
+// console.log(arr);
