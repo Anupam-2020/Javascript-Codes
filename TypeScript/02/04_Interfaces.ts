@@ -27,12 +27,12 @@ interface User { // we can add exta methods in interface afer creating(re-openin
 
 // EX.2 ___________________________________________________________________________________________________________
 
-interface Admin extends User, AnotherInterface { // inheritance of interface.
-    role: 'admin' | 'ta' | 'learner'
-}
-
 interface AnotherInterface {
     age: number
+}
+
+interface Admin extends User, AnotherInterface { // inheritance of interface.
+    role: 'admin' | 'ta' | 'learner'
 }
 
 const anurag: Admin = {
