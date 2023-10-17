@@ -15,7 +15,7 @@ class User { // M-2 for creating class... ( here we get all variables from const
   readonly city = "Patna";
   private _age: number; // private variable should be written with underscore in the beginning.
 
-  constructor(
+  constructor (
     public email: string,
     public name: string,
     protected userId: number
