@@ -100,29 +100,33 @@
 
 // console.log(subarraySum([1,2,3,7,9], 5, 12));
 
-function sort012(arr, N)
-{
+// function getData(val, val2) {
+//   return val + val2;
+// }
+
+// function sendVal() {
+//   return 4;
+// }
+
+// console.log(getData(5, sendVal()))
+
+function findPlatform(arr, dep, n) {
   //your code here
-  let i = 0;
-  let k = N - 1;
-  let j = 0;
-  while (j < N) {
-    if (arr[j] === 0) {
-      let temp = arr[j];
-      arr[j] = arr[i];
-      arr[i] = temp;
-      i++;
-      j++;
-    } else if (arr[j] === 2) {
-      let temp = arr[j];
-      arr[j] = arr[k];
-      arr[k] = temp;
-      k--;
-      j--;
+  let count = 1;
+  for (let i = 0; i < dep.length; i++) {
+    console.log(count);
+    for (let j = 0; j < arr.length; j++) {
+      if (dep[i] >= arr[j] && i !== j) count++;
+      let k = 0;
+      while (k < i) {
+        if (dep[k] < dep[i]) {
+          count--;
+        }
+        k++;
+      }
     }
-    j++;
   }
-  return arr;
+  return count;
 }
 
-console.log(sort012([0,2,1,2,0,1],6));
+console.log(findPlatform([900 ,940 ,950 ,1100 ,1500 ,1800], [910, 1200, 1120, 1130, 1900, 2000]))
