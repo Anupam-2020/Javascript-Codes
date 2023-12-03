@@ -19,6 +19,10 @@
 // Functions
 
 
+// localCompare -> returns 0 if string value is same else returns -1.
+var str1 = new String("This is beautiful string");
+var index = str1.localeCompare("utiful string");
+console.log("Result :"+index)
 
 
 let a = 4.5;
