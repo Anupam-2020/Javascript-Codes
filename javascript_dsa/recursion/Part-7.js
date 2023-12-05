@@ -1,95 +1,59 @@
-// // remove all adjacent duplicates...
+// remove all adjacent duplicates from string...
 
 
-
-// function removeUtil(string, last_removed) {
-
-// 	// If length of string is 1 or 0
-// 	if(string.length == 0 || string.length == 1)
-// 		return string
-
-// 	// Remove leftmost same characters and recur for remaining string
-// 	if(string.charAt(0) == string.charAt(1)){
-// 		last_removed = string.charCodeAt(0)
-// 		while(string.length > 1 && string[0] == string[1])
-// 			string = string.substr(1,)
-// 		string = string.substr(1,)
-
-// 		return removeUtil(string, last_removed)
-// 	}
-
-// 	// At this point, the first character is functionality different from its adjacent. 
-//     // Ignore first character and recursively remove characters from remaining string
-// 	let rem_str = removeUtil(string.substr(1,), last_removed)
-
-// 	// Check if the first character of the rem_string matches with the first character of the original string
-// 	if(rem_str.length != 0 && rem_str[0] == string[0]){
-// 		last_removed = string.charCodeAt(0)
-// 		return rem_str.substr(1,)
-// 	}
-
-// 	// If remaining string becomes empty and last removed character is same as first character of original string. 
-//     // This is needed for a string like "acbbcddc"
-// 	if(rem_str.length == 0 && last_removed == string.charCodeAt(0))
-// 		return rem_str
-
-// 	// If the two first characters of str and rem_str don't match, 
-// 	// push first character of str before the first character of rem_str.
-// 	let res = string[0] + rem_str
-
-// 	return res
-// }
-
-// function remove(string){
-// 	let last_removed = 0
-// 	return removeUtil(string,last_removed)
-// }
-
-// let string1 = "geeksforgag"
-
-// let string3 = "caaabbcaac"
-// console.log(remove(string1))
-
-
-// function removeDuplicates(string) {
-// 	if(string.length === 1) return string;
-
-// 	if(string.charAt(0) === string.charAt(1)) {
-// 		while(string.length >= 1 && string.charAt(0) === string.charAt(1)) {
-// 			string = string.substring(1,)
-// 		}
-// 		string = string.substring(1,)
-
-// 		return removeDuplicates(string)
-// 	}
-
-// 	return removeDuplicates(string.substring(1,));
-// }
-
-// console.log(removeDuplicates(string3))
-
-
-function getProfitOrLoss(events) {
-	let map = new Map();
-	let watchArray = 0;
-	let res = []
-	for(let i = 0; i < events.length; i++) {
-		switch(events[i].split(" ")[0]) {
-			case "BUY": map.set(events[i].split(" ")[1], map.get(events[i].split(" ")[1]) || 0 + events[i].split(" ")[2])
-				break;
-			case "SELL": map.set(events[i].split(" ")[1], map.get(events[i].split(" ")[1]) - events[i].split(" ")[2])
-				break;
-			case "CHANGE":
-				map.set(events[i].split(" ")[1], map.get(events[i].split(" ")[1])*events[i].split(" ")[2])
-				watchArray += map.get(events[i].split(" ")[1])
-				break;
-			case "QUERY": res.push(watchArray);
-				break;
-			default:
-				break;
+// M - 1.............................................................................
+function removeAdjacentDuplicates(string) {
+	let count = 0;
+	for(let i = 0; i < string.length; i++) {
+		let flag = 0;
+		let j = i;
+		while(string.charAt(j) === string.charAt(j+1)) {
+			let str = string.split("");
+			str.splice(i, 1);
+			string = str.join("");
+			flag = 1;
+		}
+		if(flag === 1) {
+			count++;
+			let str = string.split("");
+			str.splice(j, 1);
+			string = str.join("");
+			i--;
 		}
 	}
-		return res
+	if(count === 0) return string; 
+	return removeAdjacentDuplicates(string)
 }
 
-console.log(getProfitOrLoss(["BUY googl 20", "BUY appl 30", "SELL googl 10", "CHANGE appl 3", "QUERY", "BUY appl 10", "CHANGE googl -1", "QUERY", "BUY tata 100", "SELL tata 50", "CHANGE tata 7", "QUERY"]));
+let str1 = "aabccba";
+let str2 = "abccbccbcca";
+let str3 = "geegksforgeeg";
+let str4 = "acaaabbbacdddd";
+console.log(removeAdjacentDuplicates(str3));
+
+
+
+// M - 2.............................................................................
+function removeAdjacentDuplicates2(string) {
+	let result = "";
+	for(let i = 0; i < string.length; i++) {
+		let j = i;
+		while(j < string.length && string.charAt(j) === string.charAt(i)) {
+			j++;
+		}
+		if(j === i+1) {
+			result = result + string.charAt(i);
+		} else {
+			i = j;
+			i--;
+		}
+	}
+
+	if(result.length < string.length) {
+		return removeAdjacentDuplicates2(result)
+	} else {
+		return result;
+	}
+}
+
+console.log(removeAdjacentDuplicates2(str1));
