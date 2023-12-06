@@ -1,15 +1,10 @@
 // max and min in array using recursion...
 function maxMinUsingRecursion(arr1, index, min, max) {
     if(arr1.length === 0) return -1;
-
     if(arr1.length === 1) return arr1[0];
-
     if(index === arr1.length) return [min, max];
-
     if(arr1[index] < min) min = arr1[index];
-
     if(arr1[index] > max) max = arr1[index];
-
     return maxMinUsingRecursion(arr1, index+1, min, max);
 }
 
@@ -47,7 +42,7 @@ function fibonacciSeriesInReverseOrder(seriesLength, a, b) {
     console.log(a)
 }
 
-fibonacciSeriesInReverseOrder(7, 0, 1)
+// fibonacciSeriesInReverseOrder(7, 0, 1)
 
 // count no. of ways where coins can be arranged to make a given value.
 function countCoin(coinArray, n, sum) {
@@ -58,4 +53,25 @@ function countCoin(coinArray, n, sum) {
 }
 
 let coinArray = [7,2,3,5,4];
-console.log(countCoin(coinArray, coinArray.length, 1))
+// console.log(countCoin(coinArray, coinArray.length, 1))
+
+
+// fibonacci using closure concept...
+function generateFibonacci(number) {
+    if(number === 0) return 0;
+    if(number === 1) return 1;
+    return generateFibonacci(number - 1) + generateFibonacci(number - 2);
+}
+
+function fibonacciNumber() {
+    let count = 0;
+    return () =>  generateFibonacci(count++)
+}
+
+let fib = fibonacciNumber()
+// console.log(fib())
+// console.log(fib())
+// console.log(fib())
+// console.log(fib())
+// console.log(fib())
+// console.log(fib())
