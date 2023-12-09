@@ -31,6 +31,7 @@ function printSubsequenceOfAnArrayWithSum(arr, index, resArr, sum) {
 
 // printSubsequenceOfAnArrayWithSum([1,5,2,2], 0, [], 5);
 
+
 // Q3. -> priniting only one subsequence of an arry with given sum...
 function printOneSubsequence(arr, sum, index, resArr) {
     if(arr.length === index) {
@@ -49,4 +50,22 @@ function printOneSubsequence(arr, sum, index, resArr) {
 
 // printOneSubsequence([1,2,1], 2, 0, [])
 
-// Q4. -> 
+
+// Q4. -> Return the count of all subsequences equal to given sum in array...
+function returnSumCount(arr, resArr, index, sum) {
+    if(index === arr.length) {
+        if(sum === 0) {
+            return 1;
+        }
+        return 0;
+    }
+
+    resArr.push(arr[index])
+    let r = returnSumCount(arr, resArr, index + 1, sum - arr[index])
+    resArr.pop();
+    let l = returnSumCount(arr, resArr, index + 1, sum)
+
+    return l + r;
+}
+
+// console.log(returnSumCount([1,5,2,2], [], 0, 8));
