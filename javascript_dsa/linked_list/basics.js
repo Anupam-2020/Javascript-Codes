@@ -100,14 +100,41 @@ class LL {
             count++;
         }
     }
+
+    searchAnElement(element) {
+        let current = this.head;
+        let index = 0;
+        while(current.data !== element && current.next) {
+            current = current.next;
+            index++;
+        }
+        console.log(current.data, "-> ", index);
+    }
+
+    convertArrayToLL(arr) {
+        this.head = new Node(arr[0]);
+        let current = this.head;
+
+        for(let i = 1; i < arr.length; i++) {
+            let temp = new Node(arr[i]);
+            current.next = temp;
+            current = temp;
+        }
+    }
 }
 
-let linkedList = new LL();
-linkedList.addFirst(12);
-linkedList.addFirst(13);
-linkedList.addLast(16);
-linkedList.addLast(15);
-linkedList.addAt(2, 100);
-console.log(linkedList.removeFrom(2));
-linkedList.printLL();
-console.log(linkedList.size);
+// let linkedList = new LL();
+// linkedList.addFirst(12);
+// linkedList.addFirst(13);
+// linkedList.addLast(16);
+// linkedList.addLast(15);
+// linkedList.addAt(2, 100);
+// console.log(linkedList.removeFrom(2));
+// linkedList.printLL();
+// console.log(linkedList.size);
+// linkedList.searchAnElement(16)
+
+// let arr = [1,2,34,6,5];
+// let llArr = new LL();
+// llArr.convertArrayToLL(arr);
+// llArr.printLL();
