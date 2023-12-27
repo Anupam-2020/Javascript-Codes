@@ -43,6 +43,9 @@ let str = +age;
 str = Number(age);
 console.log(typeof str);
 
+str = "anupam";
+console.log([...str]); // output -> ['a', 'n', 'u', 'p', 'a', 'm']
+
 // BigInt
 let myNumber = BigInt(123);
 let sndNumber = 123n;
