@@ -138,3 +138,6 @@ class LL {
 // let llArr = new LL();
 // llArr.convertArrayToLL(arr);
 // llArr.printLL();
+
+str = "anupam";
+console.log([...str]);
