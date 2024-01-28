@@ -1,16 +1,13 @@
 {
-  "name": "backenddemo",
+  "name": "full-stack-backend",
   "version": "1.0.0",
-  "description": "basic app to deploy",
+  "description": "This is a full stack app.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
-  "keywords": [
-    "node",
-    "backend"
-  ],
   "author": "Anupam Anand",
   "license": "ISC",
   "dependencies": {
