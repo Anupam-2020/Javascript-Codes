@@ -8,24 +8,24 @@ var divideArray = function(nums, k) {
     let res = [];
     let arr = [];
     nums.sort((a,b) => a - b);
-    for(let i = 0; i < nums.length - 2; i++) {
-        if(nums[i] === -1) continue;
+    for(let i = 0; i < nums.length - 2; i+=3) {
+        // if(nums[i] === -1) continue;
         arr.push(nums[i]);
-        let check = [];
+        // let check = [];
         for(let j = i+1; j < nums.length; j++) {
-            if(nums[j] === -1) continue;
+            // if(nums[j] === -1) continue;
             if(Math.abs(nums[i] - nums[j]) <= k) {
                 arr.push(nums[j]);
-                check.push(j);
+                // check.push(j);
             } else {
                 return [];
             }
             if(arr.length === 3) {
                 res.push(arr);
                 arr = [];
-                nums[check[0]] = -1;
-                nums[check[1]] = -1;
-                check = [];
+                // nums[check[0]] = -1;
+                // nums[check[1]] = -1;
+                // check = [];
                 break;
             }
         }

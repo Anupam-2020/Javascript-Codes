@@ -5,17 +5,17 @@ function longestConsecutiveSequence(arr) {
 
     arr.sort((a,b) => a - b);
 
-    for(let i = 0; i < arr.length; i++) {
-        if(arr[i]+1 === arr[i+1]) {
-            count++;
-        } else if(arr[i] === arr[i+1]){ // to ignore repeated elements.
+    for(let i = 1; i < arr.length; i++) {
+        if(arr[i-1] == arr[i]) {
             continue;
-        } else {
-            count = 1;
         }
-
-        if(maxCount < count) {
-            maxCount = count;
+        if(arr[i-1]+1 == arr[i]) {
+            count++;
+            if(maxCount < count) {
+                maxCount = count;
+            }
+        } else {
+           count = 1;
         }
     }
 

@@ -1,6 +1,6 @@
 // to find peak in mountain...
 
-function peakOfTheMountain(arr) {
+function peakOfTheMountain(arr) { // this is wrong for edge cases...
     let start = 0;
     let end = arr.length - 1;
     let ans = 0;

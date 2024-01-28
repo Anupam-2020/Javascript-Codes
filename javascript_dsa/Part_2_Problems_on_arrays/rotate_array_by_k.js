@@ -12,7 +12,7 @@ var rotate_array_by_k = function(arr, k) {
     arr = reverseArr(arr, l, r);
     // console.log(arr)
 
-    // reverse array from 0th to k - 1th element of reversed array.
+    // reverse array from 0th to (k-1)th element of reversed array.
     l = 0;
     r = k - 1;
     arr = reverseArr(arr, l, r);
