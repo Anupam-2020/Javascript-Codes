@@ -6,7 +6,9 @@ boxes.forEach(function(box) {
     console.log(box);
     box.addEventListener('click', function(e) {
         // console.log(e.target.attributes.style.backgroundColor);
-        let colour = e.target.attributes.id.nodeValue;
+        console.log(e.target.attributes[2].value.split(";")[0].split(":")[1]);
+        // let colour = e.target.attributes.id.nodeValue;
+        let colour = e.target.attributes[2].value.split(";")[0].split(":")[1];
         document.body.style.backgroundColor = colour;
     })
-})
+});
