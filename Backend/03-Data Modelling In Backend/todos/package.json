@@ -1,0 +1,16 @@
+{
+  "name": "todos_app",
+  "version": "1.0.0",
+  "description": "This is an application for data modelling.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node sub_todo.models.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^8.1.1"
+  }
+}
