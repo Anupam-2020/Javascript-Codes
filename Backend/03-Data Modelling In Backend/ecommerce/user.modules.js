@@ -3,20 +3,20 @@ import mongoose from "mongoose";
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
-        unique: true,
+        required: true,
         lowercase: true,
-        required: true
+        unique: true
     },
     email: {
         type: String,
         required: true,
-        unique: true,
-        lowercase: true
+        lowercase: true,
+        unique: true
     },
     password: {
         type: String,
         required: true
     }
-}, {timestamps: true}) // timestamps gives two fields -> createdAt, updatedAt.
+}, {timestamps: true})
 
 export const User = mongoose.model("User", userSchema);

@@ -1,8 +1,8 @@
-if("ANC" === "ANaC") {
-    console.log("Yes");
-} else {
-    console.log("No");
-}
+// if("ANC" === "ANaC") {
+//     console.log("Yes");
+// } else {
+//     console.log("No");
+// }
 
 // Q1 -----------------------------------------------------------------
 // let str = "Anupam Anand";
@@ -72,5 +72,116 @@ const add = (a,b) => {
 const mul = (a, b) => {
     return a * b;
 }
-let a = (add(2,2), mul(2,4)); // the 2nd will be added to a variable...
-console.log(a);
+
+// let a = (add(2,2), mul(2,4)); // the 2nd will be added to a variable...
+// console.log(a);
+
+
+// Q8 -----------------------------------------------------------------
+// function abs(){
+//     let z = 20;
+//     let z1 = 23;
+//     z2 = 34;
+//     console.log(z, z1);
+// }
+
+// abs();
+
+// console.log(z2);
+// console.log(z);
+
+// Q9 -----------------------------------------------------------------
+// console.log(0123); // 0 before any number gets converted to octal and gives error.
+
+
+// Q10 -----------------------------------------------------------------
+// xyz(); // gives undefined.
+
+// var x = 20;
+// function xyz() {
+//     console.log(x);
+// }
+
+// xyz(); // gives 20 as optput.
+
+// Q11. -----------------------------------------------------------------
+// xyz(); // gives undefined.
+// var x = 20;
+// function xyz() {
+//     console.log(x);
+//     x = 30;
+// }
+
+// xyz(); // gives undefined.
+
+// Q12 -----------------------------------------------------------------
+// Example of closure...
+// function closures() {
+//     let count = 0;
+//     return () => {
+//         // console.log(count++);
+//         return count++;
+//     }
+// }
+
+// let x = closures();
+// console.log( x());
+// console.log( x());
+// console.log( x());
+
+// Q13 ----------------------------------------------------------------
+// for(var i = 0; i < 5; i++) {
+//     setTimeout(() => {
+//         console.log(i);
+//     }, 0)
+// }
+
+// for(var i = 0; i < 5; i++) {
+//     (function(i){
+//         setTimeout(() => {
+//             console.log(i);
+//         },0)
+//     }(i))
+// }
+
+// for(let i = 0; i < 5; i++) {
+//     setTimeout(() => {
+//         console.log(i);
+//     }, 0)
+// }
+
+// Q14 ----------------------------------------------------------------
+// setTimeout(() => { // Macrotask Queue(Lower priority then Microtask)
+//     console.log("Hello settimeout");
+// })
+
+// Promise.resolve().then(console.log("Hi")); // Microtask Queue(Higher priority)
+// console.log("End"); // Synchronous.
+
+// Output -> 
+// 1st. Hi.... 
+// 2nd. End.... 
+// 3rd. Hello settimeout....
+
+// Q15 ----------------------------------------------------------------
+// async function foo() {
+//     return "Hello World"
+// }
+
+
+// async function fooValue() {
+//     let data = await foo();
+//     console.log(data); // Here await waits for the data and when its execution is successful thenm only below code will run.
+//     console.log("Hi");
+//     console.log("Hello");
+// }
+
+// fooValue() // "Hello World", "Hi", "Hello".
+
+// Q16 ----------------------------------------------------------------
+// function foo() {
+//     console.log("Hello");
+// }
+
+// const value = new foo();
+// console.log(value); // it will return object -> foo {}
