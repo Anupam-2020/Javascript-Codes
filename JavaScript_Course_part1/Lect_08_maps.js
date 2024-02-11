@@ -4,7 +4,7 @@
 // store data in key-value pair(like objects).
 // duplicate keys not allowed.
 
-// Main diff. between object and strings....
+// Main diff. between object and map....
 // objects can only have strings and symbols as key.
 // in maps we can use anything as key like number, string, array etc.
 
@@ -55,6 +55,13 @@ for(let i = 97 ; i < 123; i++) {
     mp.set(String.fromCharCode(i), i);
 }
 
-for(let i of mp) {
+for(let i of mp) { // i is an array which contains [key, value]... -> i[0] is key and i[1] is value.
     console.log(mp.get(i[0]));
 }
+
+// map also contains values() and keys().
+const arrValue = Array.from(map.values()) 
+console.log(arrValue);
+
+const arrKey = Array.from(map.keys())
+console.log(arrKey);

@@ -96,11 +96,11 @@ const object1 = {
     length: 5,
     method() {
         // console.log(arguments)
-      arguments[0]();
+      arguments[0](); // here callback has been passed as 0th element which is executed inside method(), so it will return the length of argument...
     }
   };
   
-object1.method(callback,2,3); // Output -> 3 because arguments is an array which has length proprty and length of arguments will be returned....
+object1.method(callback,2,3); // Output -> 3 because arguments is an object which has length proprty and length of arguments will be returned....
 
 
 // Ques - 8( create calculator according to below object calling )-----------------------------------------------------

@@ -185,3 +185,29 @@ const mul = (a, b) => {
 
 // const value = new foo();
 // console.log(value); // it will return object -> foo {}
+
+// Q17 ----------------------------------------------------------------
+// let str = new String("Anupam");
+// let str2 = new String("Anupam");
+// console.log(str == str2); // false.
+
+
+// Q18 ----------------------------------------------------------------
+// arr1[5] = 6;
+// let arr2 = arr1.map((i) => i)
+// console.log(arr2);
+
+// Q19 ----------------------------------------------------------------
+let arr = [1,2,3,4,5,6,7,8,9,10];
+// let del = arr.splice(8, 10)
+// console.log(del);
+
+Array.prototype.myFind = function(callback) {
+    for(let i = 0; i < this.length; i++) {
+        if(callback(this[i], i, this)) return true;
+    }
+    return false;
+}
+
+let res = arr.myFind((a) => a === 18)
+console.log(res);

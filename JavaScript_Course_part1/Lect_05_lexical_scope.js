@@ -18,7 +18,7 @@ myApp();
 //     let firstName = "Anupam Anand";
 // }
 
-// console.log(firstName);
+// console.log(firstName); // throws error.
 
 // rest parameters...
 const addAll = (a,b,...c) => {
@@ -29,7 +29,7 @@ const addAll = (a,b,...c) => {
 
 addAll(1,2,3,4,5,6);
 
-// params destructuring...
+// object destructuring...
 const person = {
     firstName: "Anupam",
     lastname: "Anand"
@@ -55,16 +55,26 @@ const myFunc = (callback) => {
 
 myFunc(myFunc2);
 
-// function returning function.... (can be termed as currying)
-function fun1() {
-    return function fun2() {
-        return "Hello World";
+
+// Currying is a concept in JavaScript where a function with multiple arguments is transformed into a sequence of functions, 
+// each taking a single argument. The process of currying allows you to partially apply arguments to a function and create new functions with fewer parameters.
+function sum1(x) {
+    return function(y) {
+        return function(z) {
+            return x+y+z;
+        }
     }
 }
+// console.log(sum1(2)(3)(4));
 
-// console.log(fun1()());
+// Uses of currying - 
+// 1. Code Reusability,
+// 2. Makes codes simpler by createing specialized functions.
+// 3. Can help in event handling.
+// 4. Memoization.
 
-// Currying example...
+
+// Currying examples...
 const ADDITION = '+';
 const SUBTRACTION = '-';
 const MULTIPLICATION = '*';

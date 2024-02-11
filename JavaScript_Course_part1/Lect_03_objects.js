@@ -63,7 +63,7 @@ const users = [
     {userId: 2, fname: "Anurag", lname: "Anand"}
 ]
 
-// delete users[0].userId
+// delete users[0].userId // delete is applicable on arrays.
 // console.log(users);
 
 
@@ -84,10 +84,10 @@ a[c] = 456;
 //     age: 25
 // }
 
-const strObj = JSON.stringify(person) // all keys gets converted to string
+const strObj = JSON.stringify(person) // all keys and values get converted to string and all non-primitive values are ignored. 
 // console.log(strObj)
 
-// console.log(JSON.parse(strObj)) // keys get converted to original format from string.
+// console.log(JSON.parse(strObj)) // keys and values get converted to original format from string.
 
 // localStorage.setItem('test',person.name)
 // const value = localStorage.getItem('test');
@@ -148,17 +148,41 @@ console.log(device3)
 console.log(device)
 
 
+// Important......................................................................
+// Note:- deep copies the data if it is not nested. 
+// For nested data, it deeply copies the topmost data and shallow copies of the nested data.
+
+
+
+
 // Proxy in objects......................................................................
-const handler = {
-    set:() => {
-        console.log("Added a new property");
+// In simple terms, a proxy in JavaScript is like a middleman that sits between you and an object. Instead of directly interacting with the object, you go through the proxy, allowing you to customize or control how certain operations on the object are handled.
+// For example, imagine you have an object representing a person with properties like name and age. A proxy could intercept when you try to access or modify these properties, giving you the opportunity to add extra behavior, such as logging, validation, or triggering events.
+// In essence, a proxy lets you wrap an object with custom functionality, making it a powerful tool for managing and controlling interactions with JavaScript objects.
+
+// Creating a target object
+const targetObject = {
+    name: "John",
+    age: 25
+  };
+  
+  // Creating a proxy for the target object
+  const proxy = new Proxy(targetObject, {
+    get: function(target, property) {
+      // Intercepting property access
+      console.log(`Getting property: ${property}`);
+      return target[property];
     },
-    get: function() {
-        console.log("Accessed a new property");
+    set: function(target, property, value) {
+      // Intercepting property assignment
+      console.log(`Setting property: ${property} to ${value}`);
+      target[property] = value;
     }
-}
-
-const person1 = new Proxy({}, handler)
-
-person1.name1 = 'Added';
-person1.name1
+  });
+  
+  // Accessing properties through the proxy
+  console.log(proxy.name); // This triggers the "get" handler
+  
+  // Modifying properties through the proxy
+  proxy.age = 26; // This triggers the "set" handler
+  

@@ -7,3 +7,19 @@ const user = {
 
 console.log(user?.firstName);
 console.log(user?.address?.houseNo);
+
+
+const myObject = {
+    name: "Anupam",
+    age: 24,
+    sayHello() {
+        console.log(`Hello, this is ${this.name} who is ${this.age} years old.`);
+        return this
+    },
+    celebrateBDay() {
+        console.log(`It is my Bday today. I am ${this.name} ${this}`);
+        return this
+    }
+}
+
+console.log(myObject.celebrateBDay().sayHello().celebrateBDay());
