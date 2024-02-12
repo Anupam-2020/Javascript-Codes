@@ -65,3 +65,18 @@ console.log(arrValue);
 
 const arrKey = Array.from(map.keys())
 console.log(arrKey);
+
+// example....
+let str = "the quick brown fox jumps over a lazy dog";
+// let str = "anupam anand"
+let map = new Map();
+
+for(let i = 0; i < 26; i++) {
+    map.set(String.fromCharCode(97+i), 0);
+}
+
+for(let i of str) {
+    map.set(i, (map.get(i) || 0) + 1);
+}
+
+console.log(map);

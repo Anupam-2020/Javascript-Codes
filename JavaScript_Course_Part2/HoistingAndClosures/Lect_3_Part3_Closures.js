@@ -84,3 +84,37 @@ console.timeEnd("first call");
 console.time("2nd call");
 console.log(memoizedProduct(23,45))
 console.timeEnd("2nd call");
+
+
+
+// Q5 ----------------------------------------------------------------
+// Memoize logic ( another way )
+function myMemoize(callback, context) {
+  let res = {};
+  return function(...args) {
+      let argsCache = args.join("");
+      // console.log(argsCache);
+      if(!res[argsCache]) {
+          res[argsCache] = callback.call(context || this, ...args);
+      }
+      return res[argsCache];
+  }
+}
+
+const runDatabase = (num1, num2) => {
+  for(let i = 0; i < 10000000; i++){}
+  return num1 * num2;
+}
+
+const res = myMemoize(runDatabase);
+console.time("first");
+console.log(res(2,3));
+console.timeEnd("first");
+
+console.time("sec");
+console.log(res(2,3));
+console.timeEnd("sec");
+
+console.time("sec1");
+console.log(res(2,6));
+console.timeEnd("sec1");
