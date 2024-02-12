@@ -43,6 +43,7 @@ console.log('start');
 
 
 // promises and async/await ................................................................................................
+// The Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value
 function performAction(arg) {
     return new Promise((resolve, reject) => {
         resolve(`${arg} added.`)
