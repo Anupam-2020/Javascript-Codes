@@ -66,12 +66,12 @@
 // console.log(arr);
 
 // Q7 -----------------------------------------------------------------
-const add = (a,b) => {
-    return a + b;
-}
-const mul = (a, b) => {
-    return a * b;
-}
+// const add = (a,b) => {
+//     return a + b;
+// }
+// const mul = (a, b) => {
+//     return a * b;
+// }
 
 // let a = (add(2,2), mul(2,4)); // the 2nd will be added to a variable...
 // console.log(a);
@@ -198,16 +198,296 @@ const mul = (a, b) => {
 // console.log(arr2);
 
 // Q19 ----------------------------------------------------------------
-let arr = [1,2,3,4,5,6,7,8,9,10];
-// let del = arr.splice(8, 10)
-// console.log(del);
+// let obj1 = {
+//     name: "Anupam",
+//     age: 24
+// }
 
-Array.prototype.myFind = function(callback) {
-    for(let i = 0; i < this.length; i++) {
-        if(callback(this[i], i, this)) return true;
-    }
-    return false;
-}
+// let proxyObj1 = new Proxy(obj1, {
+//     get: function(targetObj, property) {
+//         console.log("Get method is called");
+//         return targetObj[property]
+//     },
 
-let res = arr.myFind((a) => a === 18)
-console.log(res);
+//     set: function(targetObj, property, value) {
+//         console.log("Set method is triggered");
+//         targetObj[property] = value;
+//     }
+// })
+
+// console.log(proxyObj1.name);
+// proxyObj1.name = "Anurag";
+// console.log(proxyObj1.name);
+
+// Q20 ----------------------------------------------------------------
+// let arr = [1,2,3,4,5,6,7,8,9,10];
+
+// Array.prototype.myReduce = function(callback, initialValue) {
+//     let accumulator = initialValue;
+//     for(let i = 0;i < this.length; i++) {
+//         accumulator = accumulator ? callback(accumulator, this[i], i, this) : this[i];
+//     }
+//     return accumulator;
+// }
+
+// let res = arr.myReduce((prev, curr) => {
+//     return prev + curr;
+// }, 0)
+
+// console.log(res);
+
+
+// Q21 ----------------------------------------------------------------
+// function add1(x) {
+//     return x + 10;
+// }
+
+// function mul1(x) {
+//     return x * 3;
+// }
+
+// function sub(x) {
+//     return x - 10;
+// }
+
+// const customComposeFn = (...fun) => {
+//     return function(x) {
+//         return fun.reduce((r, f) => {
+//             return f(r)
+//         }, x)
+//     }
+// }
+
+
+// // const customComposeFn1 = (...fun) => (x) => fun.reduce((r,f) => f(r), x)
+
+// console.log(customComposeFn(add1, mul1, sub)(5));
+
+// Q22 ----------------------------------------------------------------
+// function add1(x) {
+//     return function(y) {
+//         if(y) return add1(x+y)
+//         else return x;
+//     }
+// }
+
+// console.log(add1(2)(5)(6)(3)(1)(8)());
+
+
+// Q23 ----------------------------------------------------------------
+// function myMemoize(callback, context) {
+//     let res = {};
+//     return function(...args) {
+//         let argsCache = args.join("");
+//         // console.log(argsCache);
+//         if(!res[argsCache]) {
+//             res[argsCache] = callback.call(context || this, ...args);
+//         }
+//         return res[argsCache];
+//     }
+// }
+
+// const runDatabase = (num1, num2) => {
+//     for(let i = 0; i < 10000000; i++){}
+//     return num1 * num2;
+// }
+
+// const res = myMemoize(runDatabase);
+// console.time("first");
+// console.log(res(2,3));
+// console.timeEnd("first");
+
+// console.time("sec");
+// console.log(res(2,3));
+// console.timeEnd("sec");
+
+// console.time("sec1");
+// console.log(res(2,6));
+// console.timeEnd("sec1");
+
+// Q24 ----------------------------------------------------------------
+// let calculate = {
+//     total: 0,
+//     add: function(x) {
+//         this.total += x;
+//         return this
+//     },
+//     multiply: function(x) {
+//         this.total *= x;
+//         return this
+//     },
+//     subtract: function(x) {
+//         this.total -= x;
+//         return this
+//     },
+//     divide: function(x) {
+//         this.total /= x;
+//         return this
+//     }
+// }
+
+// let result = calculate.add(2).multiply(10).divide(2).add(5).subtract(5).total
+// console.log(result);
+
+
+// Q25 ----------------------------------------------------------------
+// const data = new Promise((res, rej) => {
+//     res("Food is ready.")
+// })
+
+// async function asyncFunc() {
+//     try {
+//         const value = await data;
+//         console.log("try: ", value);
+//     } catch (error) {
+//         console.log("catch: ",error);
+//     }
+// }
+
+// asyncFunc();
+
+// Q26 ----------------------------------------------------------------
+// console.log(undefined== null); // true.
+// console.log(undefined === null); // false.
+
+// Q27 ----------------------------------------------------------------
+// function addFive(x) {
+//     return x + 5;
+// }
+
+// function subtractTwo(x) {
+//     return x - 2;
+// }
+
+// function multiplyThree(x) {
+//     return x * 3;
+// }
+
+// function composeFn(...funArgs) {
+//     return function(x) {
+//         return funArgs.reduceRight((value, fun) => {
+//             return fun(value);
+//         }, x)
+//     }
+// }
+
+// let calc = composeFn(addFive, subtractTwo, multiplyThree);
+// console.log(calc(3));
+
+
+// 28 ----------------------------------------------------------------
+// let arr = [1,2,3,[4,5,6],[3,4],[8,1,2], [2,[4,[5,6]]]];
+
+// Array.prototype.myFlat = function(depth) {
+//     if(!Array.isArray(this)) throw new Error("Not an array");
+
+//     function flatArr(arr, depth) {
+//         if(depth === 0) {
+//             return arr;
+//         }
+//         let res = [].concat(...arr);
+//         return flatArr(res, depth-1);
+//     }
+//     return flatArr(this, depth);
+// }
+
+// let flattenedList = arr.myFlat(3);
+
+
+// 29 ----------------------------------------------------------------
+// Array.prototype.myFind = function(callback) {
+//     if(!Array.isArray(this)) throw new Error("Not an array");
+
+//     for(let i = 0; i < this.length; i++) {
+//         if(callback(this[i], i, this)) {
+//             return true;
+//         }
+//     }
+//     return false;
+// }
+
+// console.log(flattenedList.myFind((item, index, flattenedList) => {
+//     return item === 18;
+// }));
+
+
+// 30 ----------------------------------------------------------------
+// Array.prototype.myFilter = function(callback) {
+//     if(!Array.isArray(this)) throw new Error("Not an array");
+
+//     let temp = [];
+//     for(let i = 0; i < this.length; i++) {
+//         if(callback(this[i], i, this)) {
+//             temp.push(this[i])
+//         }
+//     }
+//     return temp;
+// }
+
+// console.log(flattenedList.myFilter((item, index) => item % 2 === 0));
+
+
+// 31 ----------------------------------------------------------------
+// Array.prototype.myReduce = function(callback, initialValue) {
+//     if(!Array.isArray(this)) throw new Error("Not an array");
+
+//     let temp = initialValue;
+//     for(let i = 0; i < this.length; i++) {
+//         if(temp) {
+//             temp = callback(temp, this[i], i, this);
+//         } else {
+//             temp = this[i];
+//         }
+//     }
+//     return temp;
+// }
+
+// console.log(flattenedList.myReduce((pre, curr) => {
+//     return curr + pre
+// }, 0));
+
+
+// Q32 ----------------------------------------------------------------
+// let para = document.createElement('p');
+// para.setAttribute('id', 'name');
+
+
+// document.querySelector('input').addEventListener('keydown', (e) => {
+//     para.innerHTML = e.target.value; 
+// })
+
+// document.body.appendChild(para);
+
+// Q33 ----------------------------------------------------------------
+// console.log("a"+3-2);
+
+// Q34 ----------------------------------------------------------------
+// console.log(x);
+// {
+//     var x = 2;
+//     {
+//         let x = 5;
+//     }
+//     console.log(x);
+// }
+
+// Q35 ----------------------------------------------------------------
+// function test() {
+//     var a = b = 5;
+// }
+// test();
+// console.log(a);
+// console.log(b);
+
+// 36 ----------------------------------------------------------------
+const arr = ["apple", "orange", "banana", "kiwi", "pair"];
+
+// let shortest = arr.sort((a,b) => a.length - b.length);
+// console.log(shortest[0]);
+
+// let shortest = arr.reduce((prev, curr) => {
+//     return curr.length <= prev.length ? curr : prev
+// }, arr[0])
+
+// console.log(shortest);
+
