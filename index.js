@@ -197,6 +197,9 @@
 // let arr2 = arr1.map((i) => i)
 // console.log(arr2);
 
+
+// #######################################################################################################################
+
 // Q19 ----------------------------------------------------------------
 // let obj1 = {
 //     name: "Anupam",
@@ -480,7 +483,7 @@
 // console.log(b);
 
 // 36 ----------------------------------------------------------------
-const arr = ["apple", "orange", "banana", "kiwi", "pair"];
+// const arr = ["apple", "orange", "banana", "kiwi", "pair"];
 
 // let shortest = arr.sort((a,b) => a.length - b.length);
 // console.log(shortest[0]);
@@ -491,3 +494,16 @@ const arr = ["apple", "orange", "banana", "kiwi", "pair"];
 
 // console.log(shortest);
 
+let arr = [1,2,3,3,2,5,6,1,4];
+
+greet("john");
+
+var greet = (name) => {
+    console.log("Hello "+name);
+}
+
+function greet(name) {
+    console.log("Hello "+name);
+}
+
+greet("john");

@@ -106,6 +106,30 @@ function lastAction() {
 // .catch((err) => console.log(err))
 
 
+// use-case of Promise combinators...............................................
+const getOrderApi = () => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve("Task executed");
+        },2000)
+    })
+}
+
+const getWishListApi = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            reject("Task executed");
+        }, 2000)
+    })
+}
+
+async function getPromise() {
+    const data = await Promise.allSettled([getOrderApi(), getWishListApi()]) // Promise.all/allSettled uses max-execution time of all promise to execute...
+    console.log(data);
+}
+
+getPromise();
+
 
 // async/await...
 const result = async () => {
