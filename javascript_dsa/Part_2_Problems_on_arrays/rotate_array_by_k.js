@@ -1,6 +1,40 @@
 // use-strict 
 
+// Reverse an array by k... Brute force.
+var reverse = function(arr, k) {
+    k = k % arr.length;
+    for(let i = 0; i < k; i++) {
+        let temp = arr[arr.length-1];
+        for(let j = arr.length-2; j >= 0; j--) {
+            arr[j+1] = arr[j];
+        }
+        arr[0] = temp;
+    }
 
+    console.log(arr);
+}
+
+// reverse an array by k... Optimised by time...
+var reverse2 = function(arr, k) {
+    k = k % arr.length;
+    let temp = new Array(k).fill(0);
+    for(let i = 0; i < k; i++) {
+        temp[i] = arr[i];
+    }
+
+    for(let i = 0; i < arr.length - k; i++) {
+        arr[i] = arr[i +  k];
+    }
+
+    for(let i = 0; i < k; i++) {
+        arr[arr.length - k + i] = temp[i];
+    }
+
+    console.log(arr);
+}
+
+
+// Reverse an array by k... Optimised by space...
 var rotate_array_by_k = function(arr, k) {
 
     k = k % arr.length;
@@ -38,7 +72,7 @@ function reverseArr(arr, l, r) {
 
 
 
-function rotateArray(arr) {
+function rotateArrayByOne(arr) {
     let temp = arr[0];
     for(let i = 1; i < arr.length; i++) {
         arr[i - 1] = arr[i];

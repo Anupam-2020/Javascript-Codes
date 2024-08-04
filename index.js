@@ -482,7 +482,7 @@
 // console.log(a);
 // console.log(b);
 
-// 36 ----------------------------------------------------------------
+// Q36 ----------------------------------------------------------------
 // const arr = ["apple", "orange", "banana", "kiwi", "pair"];
 
 // let shortest = arr.sort((a,b) => a.length - b.length);
@@ -494,16 +494,39 @@
 
 // console.log(shortest);
 
-let arr = [1,2,3,3,2,5,6,1,4];
 
-greet("john");
+// Q37 ----------------------------------------------------------------
+// greet("john");
 
-var greet = (name) => {
-    console.log("Hello "+name);
-}
+// var greet = (name) => {
+//     console.log("Hello "+name);
+// }
 
-function greet(name) {
-    console.log("Hello "+name);
-}
+// function greet(name) {
+//     console.log("Hello "+name);
+// }
 
-greet("john");
+// greet("john");
+
+
+// Q38 (Console log questions)----------------------------------------------------------------
+// console.log(0/0); // NaN
+// console.log('3'*'2');
+// console.log(!'false');
+// console.log(''+1+2);
+// console.log([] == 0);
+
+
+// Q39 ----------------------------------------------------------------
+// const obj = {a: '🍎'};
+// ({x: obj['a']} = {x: '🍊'});
+// console.log(obj);
+
+
+// var length = 20;
+// function count() {
+//     console.log(this.length);
+// }
+
+// const data = [count, "A", 0, 7];
+// data[0]("Hey") // Here we're calling count-fn, `this` used in count-fn will take `data-array`...
