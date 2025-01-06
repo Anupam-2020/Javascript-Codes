@@ -1,4 +1,4 @@
-// 1. Browser gives an object called Document which methods/properties to access HTML Elements and apply operations on it.
+// 1. Browser gives an object called Document which has methods/properties to access HTML Elements and apply operations on it.
 
 // Methods in document object which can be applied on HTML elements...................................................
 // 1. document.getElementById(""); // returns HTML component which has that particular `Id` in the form of object.
