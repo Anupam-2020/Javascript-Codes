@@ -26,7 +26,7 @@ addLanguage("lang3");
 
 
 // Edit *********************************************************************
-let secondLang = document.querySelector("li:nth-child(2)");
+let secondLang = document.querySelector(".language li:nth-child(2)");
 let newLi = document.createElement('li');
 let newText = document.createTextNode('Python');
 newLi.appendChild(newText);
