@@ -39,6 +39,7 @@ let newLang = document.createElement('li');
 let newText2 = document.createTextNode("Typescript");
 newLang.appendChild(newText2);
 ul.replaceChild(newLang, firstLang);
+// ul.insertBefore(newLang, firstLang);
 
 // Remove *********************************************************************
 let lastLang = document.querySelector("li:last-child");
