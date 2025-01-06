@@ -34,7 +34,7 @@ secondLang.replaceWith(newLi);
 // ul.replaceChild(newLi, secondLang);
 
 // Edit items...
-let firstLang = document.querySelector("li:first-child");
+let firstLang = document.querySelector(".language li:first-child");
 let newLang = document.createElement('li');
 let newText2 = document.createTextNode("Typescript");
 newLang.appendChild(newText2);
