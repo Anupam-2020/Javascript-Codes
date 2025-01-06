@@ -3,7 +3,7 @@
 // Methods in document object which can be applied on HTML elements...................................................
 // 1. document.getElementById(""); // returns HTML component which has that particular `Id` in the form of object.
 // 2. document.querySelector(""); 
-// 3. document.querySelectorAll(""); // This returns Node-list which is array-like object that has all the components with that particular className.
+// 3. document.querySelectorAll(""); // This returns Node-list which is array-like object that has all the components with that particular className/tagName.
 
 // Methods to change text in HTML component.....................................................
 // const heading = getElementById("");
