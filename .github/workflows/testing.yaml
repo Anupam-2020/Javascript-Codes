@@ -1,7 +1,6 @@
 name: Testing Job
 
-on:
-  workflow_dispatch:
+on: [push]
 
 jobs:
   check_variable:
@@ -13,8 +12,8 @@ jobs:
 
      - name: Set variables
        run: |
-        BUILD_TRIGGER_DESC = "${{github.event_name}} by ${{github.actor}}"
-        BUILD_TRIGGER_BY = "${{github.actor}}"
+        BUILD_TRIGGER_DESC="${{github.event_name}} by ${{github.actor}}"
+        BUILD_TRIGGER_BY="${{github.actor}}"
 
      - name: Check variables
        run: echo "${BUILD_TRIGGER_DESC}"
