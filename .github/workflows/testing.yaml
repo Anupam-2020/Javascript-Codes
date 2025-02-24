@@ -19,3 +19,26 @@ jobs:
        run: |
         echo "Build Trigger Description: $BUILD_TRIGGER_DESC"
         echo "Build Triggered By: $BUILD_TRIGGER_BY"
+
+     - name: Send Email - Success or Failure
+       if: always() # Always run this step, even if previous steps fail
+       uses: dawidd6/action-send-mail@v3
+       with:
+        server_address: smtp.example.com  # Replace with your SMTP server address
+        server_port: 587  # Replace with the correct port for your server (587 for TLS)
+        username: ${{ secrets.EMAIL_USERNAME }}  # Use GitHub Secrets for security
+        password: ${{ secrets.EMAIL_PASSWORD }}  # Use GitHub Secrets for security
+        subject: ${{ steps.trigger-api.outputs.success == 'true' && 'API Trigger Successful' || 'API Trigger Failed' }}
+        to: recipient@example.com  # Replace with recipient email
+        from: sender@example.com  # Replace with sender email
+        body: |
+          Hello,
+
+          The API trigger was {{ steps.trigger-api.outputs.success == 'true' && 'successful' || 'unsuccessful' }}.
+
+          - Build Triggered By: ${{ steps.set-vars.outputs.trigger_by }}
+          - Build Description: ${{ steps.set-vars.outputs.trigger_desc }}
+          - HTTP Response Code: {{ steps.trigger-api.outputs.success == 'true' ? '202' : 'Non-202 Response' }}
+          - Response: ${{ steps.trigger-api.outputs.response }}
+
+          Thank you.
