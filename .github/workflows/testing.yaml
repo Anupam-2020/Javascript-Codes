@@ -29,8 +29,8 @@ jobs:
         username: ${{ secrets.EMAIL_USERNAME }}  # Use GitHub Secrets for security
         password: ${{ secrets.EMAIL_PASSWORD }}  # Use GitHub Secrets for security
         subject: ${{ steps.trigger-api.outputs.success == 'true' && 'API Trigger Successful' || 'API Trigger Failed' }}
-        to: recipient@example.com  # Replace with recipient email
-        from: sender@example.com  # Replace with sender email
+        to: lagax87575@bitflirt.com  # Replace with recipient email
+        from: fakev75378@noomlocs.com  # Replace with sender email
         body: |
           Hello,
 
