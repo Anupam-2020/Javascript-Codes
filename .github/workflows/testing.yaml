@@ -15,4 +15,6 @@ jobs:
        run: |
         BUILD_TRIGGER_DESC = "${{github.event_name}} by ${{github.actor}}"
         BUILD_TRIGGER_BY = "${{github.actor}}"
-        echo "$BUILD_TRIGGER_DESC"
+
+     - name: Check variables
+       run: echo "${BUILD_TRIGGER_DESC}"
