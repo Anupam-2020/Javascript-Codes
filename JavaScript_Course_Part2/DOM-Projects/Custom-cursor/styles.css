@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+#main {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(39, 38, 38);
+    /* position: relative; */
+}
+
+h1 {
+    color: rgb(248, 245, 241);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 72px;
+}
+
+#cursor {
+    width: 20px;
+    height: 20px;
+    background-color: rgb(239, 239, 239);
+    border-radius: 50%;
+    mix-blend-mode: difference;
+    position: absolute;
+    transition: all linear 0.1s;
+}

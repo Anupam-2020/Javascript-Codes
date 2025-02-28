@@ -12,7 +12,7 @@ const id = setInterval(() => {
 
 const buttonId = document.querySelector('button');
 buttonId.addEventListener("click", () => {
-    clearInterval(id) // clear does the same as clearTimeout.
+    clearInterval(id) // clearInterval does the same as clearTimeout.
     buttonId.textContent = body.style.backgroundColor;
 })
 

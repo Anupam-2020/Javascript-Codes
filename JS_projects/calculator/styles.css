@@ -1,0 +1,50 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.heading {
+    text-align: center;
+}
+
+.input {
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid black;
+    height: 2rem;
+    font-size: large;
+}
+
+.input:focus {
+    outline: none;
+    
+}
+
+.calc_container {
+    width: 15vw;
+    height: 36vh;
+    border: 2px solid black;
+}
+
+.row {
+    display: flex;
+    justify-content: space-around;
+}
+
+.button {
+    display: flex;
+    background-color: bisque;
+    flex-wrap: wrap;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid black;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    cursor: pointer;
+}

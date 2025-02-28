@@ -1,0 +1,26 @@
+name: Testing Job
+
+on: workflow_dispatch
+
+jobs:
+  check_variable:
+    runs-on: ubuntu-latest
+
+    steps:
+     - name: checkout repository
+       uses: actions/checkout@v4
+
+     - name: Set variables
+       env: 
+        API_KEY: ${{ env.API_KEY }}
+        PASSWORD: ${{ secrets.PASSWORD }}
+       run: |
+        echo "BUILD_TRIGGER_DESC=${{ github.event_name }} by ${{ github.actor }}" >> $GITHUB_ENV
+        echo "BUILD_TRIGGER_BY=${{ github.actor }}" >> $GITHUB_ENV
+        echo $API_KEY
+        echo $PASSWORD
+
+     - name: Check variables
+       run: |
+        echo "Build Trigger Description: $BUILD_TRIGGER_DESC"
+        echo "Build Triggered By: $BUILD_TRIGGER_BY"

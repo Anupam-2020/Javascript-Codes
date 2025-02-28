@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <script src="./Events.js" defer></script>
+    <style>
+        body {
+            background-color: rgb(115, 113, 110);
+        }
+
+        .languages span {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            border: 1px solid black;
+            background-color: rgb(213, 214, 207);
+            color: black;
+            text-align: center;
+            line-height: 100px;
+            cursor: pointer;
+        }
+
+        .modal {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+
+        .modal-content {
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+<body>
+    <div style="border: 1px solid black; padding: 10px;">
+        <form style="border: 1px solid black;" action="">
+            Form
+            <button type="submit">Button</button>
+        </form>
+    </div>
+
+    <div class="languages">
+        <div>
+            <span class="python">Python</span>
+            <span class="C">C</span>
+            <span class="JS">
+                <b>JS</b></span>
+        </div>
+        <div>
+            <span class="SQL">SQL</span>
+            <span class="Ruby">Ruby</span>
+            <span class="Kotlin">Kotlin</span>
+        </div>
+    </div>
+
+    <button class="modal-button">Open Modal</button>
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Some text in the Modal..</p>
+        </div>
+    </div>
+</body>
+</html>

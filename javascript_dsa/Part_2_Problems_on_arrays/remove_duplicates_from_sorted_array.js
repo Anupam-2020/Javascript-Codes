@@ -3,51 +3,31 @@ const remove_duplicates_from_sorted_array = (arr) => {
     return set.length
 }
 
-
-const remove_duplicates_from_sorted_array_2nd_approach = (arr) => {
-    let i = 0;
-    let j = i + 1;
-    while( i < arr.length - 1 && j < arr.length) {
-        if(arr[i] === arr[j] && i < j) {
-            arr[j] = Number.POSITIVE_INFINITY;
-            j++;
-        }
-        else {
-            i = j;
-            j = i + 1;
-        }
-    }
-    let count = 0;
-    for(let i of arr) {
-        if(i === Number.POSITIVE_INFINITY) {
-            count++;
-        }
-    }
-
-    let start = 0;
-    while(start < arr.length) {
-        if(arr[start] === Number.POSITIVE_INFINITY) {
-            arr.splice(start,1);
-            start--;
-        }
-            start++;
-    }
-
-    console.log(arr)
-}
-
 const remove_duplicates_from_sorted_array_3rd_approach = (arr) => {
-    let j = 0;
-    for(let i = 1; i < arr.length; i++) {
-        if(arr[j] !== arr[i]) {
-            j++;
-            arr[j] = arr[i];
+    let j = 1;
+    let i = 0;
+    while(j < arr.length) {
+         if(arr[i] !== arr[j]) {
+            arr[i+1] = arr[j];
+            i++;
         }
+        j++;
     }
-    console.log(j+1)
+    console.log(arr.slice(0, i+1));
 }
 
 
-console.log(remove_duplicates_from_sorted_array([0,0,1,1,1,2,2,2,2,2,3,3,4]))
-remove_duplicates_from_sorted_array_2nd_approach([0,0,1,1,1,2,2,2,2,2,3,3,4])
-remove_duplicates_from_sorted_array_3rd_approach([0,0,1,1,1,2,2,2,2,2,3,3,4])
+function remove_duplicates_from_sorted_array_map(arr) {
+    let map = new Map();
+    for(let i = 0; i < arr.length; i++) {
+        map.set(arr[i], (map.get(arr[i]) || 0) + 1);
+    }
+
+    return Array.from(map.keys());
+}
+
+
+// console.log(remove_duplicates_from_sorted_array([0,0,1,1,1,2,2,2,2,2,3,3,4]))
+// remove_duplicates_from_sorted_array_2nd_approach([0,0,1,1,1,2,2,2,2,2,3,3,4])
+remove_duplicates_from_sorted_array_3rd_approach([0,0,1,1,1,2,2,2,2,2,3,3,4,4])
+// console.log(remove_duplicates_from_sorted_array_map([0,0,1,1,1,2,2,2,2,2,3,3,4]))

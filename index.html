@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./index.js" defer></script>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .hollow-triangle {
+        position: absolute;
+        width: 100px;
+        background-color: black;
+        height: 1px;
+      }
+
+      .d1 {
+        transform-origin: bottom left;
+        transform: rotate(-60deg);
+      }
+
+      .d3 {
+        transform-origin: bottom right;
+        transform: rotate(59.5deg);
+      }
+
+      /* p:nth-child(2) {
+        color: aqua;
+      } */
+
+    </style>
+  </head>
+  <body>
+    <h2 id="title" class="h1">Hello World<span style="display: none;">Invisible</span></h2>
+    <div class="hollow-triangle d1"></div>
+    <div class="hollow-triangle d2"></div>
+    <div class="hollow-triangle d3"></div>
+    <input type="text" placeholder="enter data" class="input" value="">
+
+    <ul id="products">
+      unordered
+      <li id="prod1" class="list">Shoes</li>
+      <li id="prod2" class="list">Mobile</li>
+      <li id="prod3" class="list">Laptop</li>
+    </ul>
+  </body>
+</html>

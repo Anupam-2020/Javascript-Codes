@@ -1,24 +1,41 @@
 // use-strict 
 
-var rotate_array_by_k = function(arr, k) {
-    let arr_part_1 = [];
-    let arr_part_2 = [];
-
-    for(let i = 0; i <= k; i++) {
-        arr_part_1[i] = arr[i];
+// Reverse an array by k... Brute force.
+var reverse = function(arr, k) {
+    k = k % arr.length;
+    for(let i = 0; i < k; i++) {
+        let temp = arr[arr.length-1];
+        for(let j = arr.length-2; j >= 0; j--) {
+            arr[j+1] = arr[j];
+        }
+        arr[0] = temp;
     }
 
-    for(let i = 0, j = k + 1; j < arr.length; i++, j++) {
-        arr_part_2[i] = arr[j];
+    console.log(arr);
+}
+
+// reverse an array by k... Optimised by time...
+var reverse2 = function(arr, k) {
+    k = k % arr.length;
+    let temp = new Array(k).fill(0);
+    for(let i = 0; i < k; i++) {
+        temp[i] = arr[i];
     }
 
-    arr =  [...arr_part_2, ...arr_part_1]
-    console.log(arr)
+    for(let i = 0; i < arr.length - k; i++) {
+        arr[i] = arr[i +  k];
+    }
+
+    for(let i = 0; i < k; i++) {
+        arr[arr.length - k + i] = temp[i];
+    }
+
+    console.log(arr);
 }
 
 
-
-var rotate_array_by_k_2nd_method = function(arr, k) {
+// Reverse an array by k... Optimised by space...
+var rotate_array_by_k = function(arr, k) {
 
     k = k % arr.length;
     let length = arr.length;
@@ -29,7 +46,7 @@ var rotate_array_by_k_2nd_method = function(arr, k) {
     arr = reverseArr(arr, l, r);
     // console.log(arr)
 
-    // reverse array from 0th to k - 1th element of reversed array.
+    // reverse array from 0th to (k-1)th element of reversed array.
     l = 0;
     r = k - 1;
     arr = reverseArr(arr, l, r);
@@ -51,10 +68,43 @@ function reverseArr(arr, l, r) {
     return arr
 }
 
-console.time('1st')
-rotate_array_by_k([1,2,3,4,5,6,7],3)
-console.timeEnd('1st')
+// console.log(rotate_array_by_k([1,2,3,4,5,6,7],3))
 
-console.time('2nd')
-console.log(rotate_array_by_k_2nd_method([1,2,3,4,5,6,7],3))
-console.timeEnd('2nd')
+
+
+function rotateArrayByOne(arr) {
+    let temp = arr[0];
+    for(let i = 1; i < arr.length; i++) {
+        arr[i - 1] = arr[i];
+    }
+
+    arr[arr.length - 1] = temp;
+}
+
+let arr = [2,1,6,4,2,9,5];
+// rotateArray(arr);
+// console.log(arr)
+
+
+
+var rotateArrayToRightByK = function(arr, k) {
+    let len = arr.length;
+    let temp = [];
+    let rotation = k % len;
+
+    for(let i = len - rotation; i < len; i++) {
+        temp.push(arr[i])
+    }
+
+    let j = len - 1; 
+    for(let i = len - rotation - 1; i >= 0; i--) {
+        arr[j--] = arr[i];
+    }
+
+    for(let i = 0; i < rotation; i++) {
+        arr[i] = temp[i];
+    }
+};
+
+// rotateArrayToRightByK(arr, 2);
+// console.log(arr, 2)
