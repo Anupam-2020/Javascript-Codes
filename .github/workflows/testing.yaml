@@ -11,14 +11,14 @@ jobs:
        uses: actions/checkout@v4
 
      - name: Set variables
-       env: 
-        API_KEY: ${{ env.API_KEY }}
-        PASSWORD: ${{ secrets.PASSWORD }}
+      #  env: 
+      #   API_KEY: ${{ env.API_KEY }}
+      #   PASSWORD: ${{ secrets.PASSWORD }}
        run: |
         echo "BUILD_TRIGGER_DESC=${{ github.event_name }} by ${{ github.actor }}" >> $GITHUB_ENV
         echo "BUILD_TRIGGER_BY=${{ github.actor }}" >> $GITHUB_ENV
-        echo $API_KEY
-        echo $PASSWORD
+        # echo $API_KEY
+        # echo $PASSWORD
 
      - name: Check variables
        run: |
