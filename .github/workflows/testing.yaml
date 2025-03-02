@@ -1,6 +1,8 @@
 name: Testing Job
 
-on: workflow_dispatch
+on:
+  sechdule:
+    - cron: '35 13 * * *'
 
 jobs:
   check_variable:
