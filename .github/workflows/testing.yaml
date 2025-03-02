@@ -1,6 +1,9 @@
 name: Testing Job
 
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+  schedule: 
+    cron: '30 11 * * *'
 
 jobs:
   check_variable:
