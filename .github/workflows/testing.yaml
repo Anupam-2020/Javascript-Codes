@@ -1,7 +1,7 @@
 name: Testing Job
 
 on:
-  sechdule:
+  schedule:
     - cron: '35 13 * * *'
 
 jobs:
