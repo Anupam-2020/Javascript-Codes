@@ -3,7 +3,7 @@ name: Sample Workflow
 on:
   workflow_dispatch:
   schedule: 
-    -cron: '03 12 * * *'
+    - cron: '03 12 * * *'
 
 jobs:
   check_variable:
