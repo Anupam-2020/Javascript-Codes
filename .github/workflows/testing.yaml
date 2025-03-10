@@ -25,7 +25,7 @@ jobs:
         timezone=$(date +"%Z")
         echo "Current Hour -> $current_hour"
         echo "Current Minutes -> $current_minute"
-        echo "Timezone -> timezone$"
+        echo "Timezone -> $timezone"
         if [[ "$timezone" == "PST" && "$current_hour" == "04" && "$current_minute" == "30" ]] || 
            [[ "$timezone" == "PDT" && "$current_hour" == "03" && "$current_minute" == "30" ]]; then
           echo "It's 8:30 PM in PST/PDT. Proceeding with the workflow."
