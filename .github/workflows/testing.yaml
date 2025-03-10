@@ -3,7 +3,7 @@ name: Testing Job
 on:
   schedule:
     # Runs every 30 minutes between 4:00 AM and 5:00 AM UTC (which is 8:00 PM to 9:00 PM PST)
-    - cron: '0,30 12 * * 1-5'
+    - cron: '0,30 14 * * 1-5'
   workflow_dispatch:  # Allows manual triggering of the workflow
 
 jobs:
@@ -17,15 +17,18 @@ jobs:
       uses: actions/checkout@v4
 
     # Check if it's 8:30 PM PST
-    - name: Check if it is 8:30 PM PST
-      id: check_time
+    - name: Check if it's 8:30 PM PST/PDT
       run: |
-        current_time=$(curl -s "http://worldtimeapi.org/api/timezone/Asia/Kolkata")
-        echo "$current_time"
-        if [ "$current_time" == "18:15" ]; then
-          echo "It is 8:30 PM PST, proceeding with the job."
+        current_hour=$(date +"%H")
+        current_minute=$(date +"%M")
+        timezone=$(date +"%Z")
+        echo "Current Hour -> $current_hour"
+        echo "Current Minutes -> $current_minute"
+        if [[ "$timezone" == "PST" && "$current_hour" == "20" && "$current_minute" == "30" ]] || 
+           [[ "$timezone" == "PDT" && "$current_hour" == "20" && "$current_minute" == "30" ]]; then
+          echo "It's 8:30 PM in PST/PDT. Proceeding with the workflow."
         else
-          echo "Not 8:30 PM PST, exiting."
+          echo "Not the correct time. Exiting."
           exit 0
         fi
 
