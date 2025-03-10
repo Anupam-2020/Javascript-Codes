@@ -3,7 +3,7 @@ name: Testing Job
 on:
   schedule:
     # Runs every 30 minutes between 4:00 AM and 5:00 AM UTC (which is 8:00 PM to 9:00 PM PST)
-    - cron: '0,30 12 * * 2-6'
+    - cron: '0,30 12 * * 1-5'
   workflow_dispatch:  # Allows manual triggering of the workflow
 
 jobs:
