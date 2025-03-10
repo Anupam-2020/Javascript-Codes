@@ -32,6 +32,7 @@ jobs:
       #  env: 
       #   API_KEY: ${{ env.API_KEY }}
       #   PASSWORD: ${{ secrets.PASSWORD }}
+      if: steps.check_time.outcome == 'success'  
       run: |
         echo "BUILD_TRIGGER_DESC=${{ github.event_name }} by ${{ github.actor }}" >> $GITHUB_ENV
         echo "BUILD_TRIGGER_BY=${{ github.actor }}" >> $GITHUB_ENV
@@ -39,6 +40,7 @@ jobs:
         # echo $PASSWORD
 
     - name: Check variables
+      if: steps.check_time.outcome == 'success'  
       run: |
         echo "Build Trigger Description: $BUILD_TRIGGER_DESC"
         echo "Build Triggered By: $BUILD_TRIGGER_BY"
