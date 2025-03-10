@@ -2,7 +2,7 @@ name: Testing Job
 
 on:
   schedule:
-    # Runs every 30 minutes between 4:00 AM and 5:00 AM UTC (which is 8:00 PM to 9:00 PM PST)
+    # Runs every 30 minutes between 2:00 PM and 3:00 PM UTC
     - cron: '0,30 14 * * 1-5'
   workflow_dispatch:  # Allows manual triggering of the workflow
 
@@ -26,8 +26,8 @@ jobs:
         echo "Current Hour -> $current_hour"
         echo "Current Minutes -> $current_minute"
         echo "Timezone -> $timezone"
-        if [[ "$timezone" == "PST" && "$current_hour" == "04" && "$current_minute" == "30" ]] || 
-           [[ "$timezone" == "PDT" && "$current_hour" == "03" && "$current_minute" == "30" ]]; then
+        if [[ "$current_hour" == "04" && "$current_minute" == "30" ]] || 
+           [[ "$current_hour" == "03" && "$current_minute" == "30" ]]; then
           echo "It's 8:30 PM in PST/PDT. Proceeding with the workflow."
         else
           echo "Not the correct time. Exiting."
