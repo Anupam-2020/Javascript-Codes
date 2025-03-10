@@ -2,27 +2,44 @@ name: Testing Job
 
 on:
   schedule:
-    - cron: '35 13 * * *'
+    # Runs every 30 minutes between 4:00 AM and 5:00 AM UTC (which is 8:00 PM to 9:00 PM PST)
+    - cron: '0,30 12 * * 2-6'
+  workflow_dispatch:  # Allows manual triggering of the workflow
 
 jobs:
-  check_variable:
+  trigger_replication: 
+    # runs on the docker in docker runner set provided.
     runs-on: ubuntu-latest
 
     steps:
-     - name: checkout repository
-       uses: actions/checkout@v4
+    # checks out the website-replication-automation repository
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
-     - name: Set variables
+    # Check if it's 8:30 PM PST
+    - name: Check if it is 8:30 PM PST
+      id: check_time
+      run: |
+        current_time=$(curl -s "http://worldtimeapi.org/api/timezone/Asia/Kolkata" | jq -r '.datetime' | cut -d'T' -f2 | cut -d':' -f1,2)
+        echo "$current_time"
+        if [ "$current_time" == "18:15" ]; then
+          echo "It is 8:30 PM PST, proceeding with the job."
+        else
+          echo "Not 8:30 PM PST, exiting."
+          exit 0
+        fi
+
+    - name: Set variables
       #  env: 
       #   API_KEY: ${{ env.API_KEY }}
       #   PASSWORD: ${{ secrets.PASSWORD }}
-       run: |
+      run: |
         echo "BUILD_TRIGGER_DESC=${{ github.event_name }} by ${{ github.actor }}" >> $GITHUB_ENV
         echo "BUILD_TRIGGER_BY=${{ github.actor }}" >> $GITHUB_ENV
         # echo $API_KEY
         # echo $PASSWORD
 
-     - name: Check variables
-       run: |
+    - name: Check variables
+      run: |
         echo "Build Trigger Description: $BUILD_TRIGGER_DESC"
         echo "Build Triggered By: $BUILD_TRIGGER_BY"
