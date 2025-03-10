@@ -20,7 +20,7 @@ jobs:
     - name: Check if it is 8:30 PM PST
       id: check_time
       run: |
-        current_time=$(curl -s "http://worldtimeapi.org/api/timezone/Asia/Kolkata" | jq -r '.datetime' | cut -d'T' -f2 | cut -d':' -f1,2)
+        current_time=$(curl -s "http://worldtimeapi.org/api/timezone/Asia/Kolkata")
         echo "$current_time"
         if [ "$current_time" == "18:15" ]; then
           echo "It is 8:30 PM PST, proceeding with the job."
