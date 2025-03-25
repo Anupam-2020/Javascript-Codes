@@ -1,0 +1,132 @@
+:root {
+    --btn: rgba(135, 140, 142, 0.491);
+    --bg: rgb(225, 231, 236);
+    --btn-hover: rgba(167, 175, 179, 0.491);
+    --model_bg: #514a4a78;
+    --black: #000;
+    --list_items_bg: rgb(187, 183, 177);
+    --white: white;
+}
+
+* {
+    background-color: var(--bg);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.top_nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.add_employee {
+    border-radius: 15px;
+    padding: 5px 8px 5px 8px;
+    border-width: 0;
+    background-color: var(--btn);
+    cursor: pointer;
+}
+
+
+.add_employee:hover {
+    background-color: var(--btn-hover);
+}
+
+.employee {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+.employees_list {
+    border: 1px solid var(--black);
+    width: 30%;
+    height: 80%;
+    padding: 0 0.2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.list_scroll {
+    overflow-y: scroll;
+}
+
+.employees_details {
+    border: 1px solid var(--black);
+    width: 70%;
+    height: 80%;
+    padding: 0 0.2rem;
+}
+
+.employee_list_names {
+    display: flex;
+    flex-direction: column;
+}
+
+.employee_list_names > span {
+    background-color: var(--list_items_bg);
+    margin: 5px 5px;
+    border-radius: 10px;
+    padding: 6px 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: 0.05s all ease-in;
+}
+
+.employee_list_names > span:hover,
+span.selected {
+    background-color: rgb(220, 218, 214);
+}
+
+.employee_list-header,
+.employee_details-header {
+    text-align: center;
+    border-bottom: 1px solid black;
+    padding: 10px 0;
+}
+
+.emp_det {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.details_img {
+    height: 100px;
+    width: 100px;
+    object-fit: contain;
+}
+
+.add_employee_div {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--model_bg);
+    justify-content: center;
+    align-items: center;
+}
+
+.name_div {
+    background-color: var(--white);
+}
+
+.employee_form {
+    position: inherit;
+    width: 40%;
+    height: 70%;
+    background-color: aliceblue;
+}
+
+.submitForm {
+    
+}

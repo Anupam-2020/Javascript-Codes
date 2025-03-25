@@ -1,0 +1,27 @@
+[
+    {
+        "quest":"What is the color of sky",
+        "options":["Blue", "Green","purple", "pink"],
+        "correct_ans": 1
+    },
+    {
+        "quest":"Which is the best Smartphone Brand?",
+        "options":["Samsung", "Apple","Pixel", "One Plus"],
+        "correct_ans": 2
+    },
+    {
+        "quest":"How many bones are there in human body?",
+        "options":["199", "201","180", "206"],
+        "correct_ans": 4
+    },
+    {
+        "quest":"What is the color of sky?",
+        "options":["Blue", "Green","purple", "pink"],
+        "correct_ans": 1
+    },
+    {
+        "quest":"Which is the largest democracy in the world in terms of population?",
+        "options":["USA", "England","Russia", "India"],
+        "correct_ans": 4
+    }
+]

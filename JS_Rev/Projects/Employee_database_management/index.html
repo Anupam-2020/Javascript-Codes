@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="margin: 10px 10px 30px 10px; width: 98vw; height: 80vh">
+    <header>
+      <nav class="top_nav">
+        <h1>Employee Management Database</h1>
+        <button class="add_employee">Add Employee</button>
+      </nav>
+    </header>
+    <main class="employee">
+      <div class="employees_list">
+        <h4 class="employee_list-header">Employees List</h4>
+        <div class="list_scroll">
+            <div class="employee_list_names"></div>
+        </div>
+      </div>
+      <div class="employees_details">
+        <h4 class="employee_details-header">Employee Information</h4>
+        <div class="employee_details"></div>
+      </div>
+      <div class="add_employee_div">
+        <form action="submit" class="employee_form">
+          <h2>Add a new Employee</h2>
+          <div class="name_div">
+            <input type="text" name="firstName" placeholder="first name" required>
+            <input type="text" name="lastName" placeholder="last name" required>
+          </div>
+          <input type="text" name="imageUrl" placeholder="image url(Optional)">
+          <input type="email" name="email" placeholder="email" required>
+          <input type="number" name="contactNumber" placeholder="contact" required>
+          <input type="number" name="salary" placeholder="salary" required>
+          <input type="text" name="address" placeholder="address" required>
+          <input type="date" name="date" placeholder="dd-mm-yy" required>
+          <button class="submitForm" value="submit">Submit</button>
+        </form>
+      </div>
+    </main>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="index.js"></script>
+  </body>
+</html>

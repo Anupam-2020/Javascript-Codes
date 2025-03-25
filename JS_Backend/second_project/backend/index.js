@@ -1,14 +1,18 @@
 import { configDotenv } from "dotenv";
 import express from "express";
+import cors from 'cors';
 
 configDotenv();
 const app = express();
+app.use(cors())
 
-app.get("/", (req, res) => {
-  res.send("Server is ready");
-});
+app.use(express.static('dist'))
 
-app.get("/jokes", (req, resp) => {
+// app.get("/", (req, res) => {
+//   res.send("Server is ready");
+// });
+
+app.get("/api/jokes/", (req, resp) => {
   let jokes = [
     {
       type: "general",

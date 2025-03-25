@@ -416,3 +416,12 @@ function print2largest(arr,n){
 }
 
 // console.log(print2largest([28 ,43 ,26 ,65 ,60 ,54 ,51 ,35 ,42 ,48 ,33 ,40 ,58 ,38 ,64 ,47, 44 ,49 ,46 ,25 ,57 ,39 ,55 ,45 ,29 ,32 ,61 ,53 ,31 ,36 ,56 ,63 ,30 ,52 ,27 ,34 ,50 ,41 ,37 ,66 ,62 ,59], 42));
+
+
+(async function getData() {
+    let BASE_URL = "https://timeapi.io/api/Time/current/zone"
+    let TIME_ZONE = "Asia/Kolkata"
+    let data = await fetch(`${BASE_URL}?timeZone=${TIME_ZONE}`);
+    let response = await data.json();
+    console.log(response.hour, response.minute);
+})();

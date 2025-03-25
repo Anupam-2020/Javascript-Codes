@@ -1,0 +1,12 @@
+.folder_name {
+    background-color: rgba(66, 67, 68, 0.258);
+    width: 40%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 20px 0px 20px;
+    align-items: center;
+    height: 35px;
+    margin: 4px;
+}
