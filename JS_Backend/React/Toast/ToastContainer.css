@@ -1,0 +1,47 @@
+/* * {
+    padding: 0px;
+    margin: 0px;
+} */
+
+
+.toast_text {
+    position: absolute;
+    right: 1px;
+    background-color: rgb(123, 158, 119);
+    border-radius: 4px;
+    width: 200px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.toast_text_appear {
+    animation: slide 1s ease-in;
+}
+
+.toast_text_disappear {
+    animation: slide_out 1s ease-out;
+}
+
+@keyframes slide {
+    0% {
+        transform: translate(100%);
+    }
+
+    100% {
+        transform: translate(0%);
+    }
+}
+
+@keyframes slide_out {
+    0% {
+        transform: translate(0%);
+    }
+
+    100% {
+        transform: translate(100%);
+    }
+}
